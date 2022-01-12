@@ -1,0 +1,74 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@layer components {
+  .navBg {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+  .navBg::after {
+    content: "";
+    position: absolute;
+    background: inherit;
+    -webkit-filter: blur(10px);
+            filter: blur(10px);
+    inset: 0px;
+    z-index: -1;
+  }
+  .nav-li::after {
+    content: "";
+    background-color: white;
+    position: absolute;
+    top: 1.825rem;
+    left: calc(50% - 5px);
+    height: 2px;
+    width: 10px;
+    border-radius: 10px;
+  }
+  .selected::after {
+    content: "";
+    background-color: white;
+    position: absolute;
+    top: 1.825rem;
+    left: -0.25rem;
+    height: 2px;
+    width: 110%;
+    border-radius: 10px;
+    -webkit-animation: elongate 0.5s;
+            animation: elongate 0.5s;
+  }
+  .heroBg {
+    background: radial-gradient(ellipse at top, #26262d, #181318);
+  }
+  .heading {
+    font-size: calc(25px + 5vw);
+  }
+  @-webkit-keyframes elongate {
+    0% {
+      -webkit-transform: translateX(-100px);
+              transform: translateX(-100px);
+      -webkit-transform: scaleX(0.2);
+              transform: scaleX(0.2);
+    }
+    100% {
+      -webkit-transform: translateX(0px);
+              transform: translateX(0px);
+      -webkit-transform: scaleX(1);
+              transform: scaleX(1);
+    }
+  }
+  @keyframes elongate {
+    0% {
+      -webkit-transform: translateX(-100px);
+              transform: translateX(-100px);
+      -webkit-transform: scaleX(0.2);
+              transform: scaleX(0.2);
+    }
+    100% {
+      -webkit-transform: translateX(0px);
+              transform: translateX(0px);
+      -webkit-transform: scaleX(1);
+              transform: scaleX(1);
+    }
+  }
+}
+/*# sourceMappingURL=globals.css.map */

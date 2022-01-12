@@ -1,0 +1,66 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+
+
+  // Navigation
+  .navBg {
+    background-color: rgba(255, 255, 255, 0.2);
+    &::after {
+      content: "";
+      position: absolute;
+      background: inherit;
+      filter: blur(10px);
+      inset: 0px;
+      z-index: -1;
+    }
+  }
+  .nav-li {
+    &::after {
+      content: "";
+      background-color: white;
+      position: absolute;
+      top: 1.825rem;
+      left: calc(50% - 5px);
+      height: 2px;
+      width: 10px;
+      border-radius: 10px;
+    }
+  }
+  .selected {
+    &::after {
+      content: "";
+      background-color: white;
+      position: absolute;
+      top: 1.825rem;
+      left: -0.25rem;
+      height: 2px;
+      width: 110%;
+      border-radius: 10px;
+      animation: elongate 0.5s;
+    }
+  }
+
+
+  // Home screen
+  .heroBg {
+    background: radial-gradient(ellipse at top, #26262d, #181318);
+  }
+  .heading {
+    font-size: calc(25px + 5vw);
+  }
+
+  // Animations
+  @keyframes elongate {
+    0% {
+      transform: translateX(-100px);
+      transform: scaleX(0.2);
+    }
+    100% {
+      transform: translateX(0px);
+      transform: scaleX(1);
+    }
+  }
+}
