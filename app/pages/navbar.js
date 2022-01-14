@@ -15,7 +15,7 @@ export default function Navbar({active}) {
   function conditionalNavbar() {
     if (isMobile) {
       return (
-        <div className="fixed flex bg-zinc-500/95 h-14 w-screen justify-end">
+        <div className="fixed flex bg-zinc-500/95 h-14 w-screen justify-end z-10">
           <p className="p-3" onClick={() => setIsOpen(!isOpen)}><svg className="fill-white" viewBox="0 0 100 100" width="40" height="40">
             <rect width="100" height="15" rx="8"></rect>
             <rect y="30" width="100" height="15" rx="8"></rect>
@@ -31,27 +31,23 @@ export default function Navbar({active}) {
             <Link href='/'>
               <li className="relative">
                 {active === 'Home' && <span className="selected" />}
-                <a className="nav-li text-white hover:cursor-pointer p-2">Home</a>
-              </li>
-            </Link>
+                <a className="nav-li text-white hover:cursor-pointer p-12 py-[1.375rem] hover:navHover">Home</a>
+              </li></Link>
             <Link href='/APOD'>
               <li className="relative">
               {active === 'APOD' && <span className="selected" />}
-                <a className="nav-li text-white hover:cursor-pointer p-2">APOD</a>
-              </li>
-            </Link>
-            <Link href='/'>
+                <a className="nav-li text-white hover:cursor-pointer p-12 py-[1.375rem] hover:navHover">APOD</a>
+              </li></Link>
+            <Link href='/solarSystem'>
             <li className="relative">
                 {active === 'SolarSystem' && <span className="selected" />}
-                <a className="nav-li text-white hover:cursor-pointer p-2">Solar System</a>
-              </li>
-            </Link>
-            <Link href='/'>
+                <a className="nav-li text-white hover:cursor-pointer p-12 py-[1.375rem] hover:navHover">Solar System</a>
+              </li></Link>
+            <Link href='/search'>
             <li className="relative">
                 {active === 'Search' && <span className="selected" />}
-                <a className="nav-li text-white hover:cursor-pointer p-2">Search</a>
-              </li>
-            </Link>
+                <a className="nav-li text-white hover:cursor-pointer p-12 py-[1.375rem] hover:navHover">Search</a>
+              </li></Link>
           </ul>
         </div>
       )
@@ -60,20 +56,16 @@ export default function Navbar({active}) {
   function conditionalDropDown() {
     if (isOpen) {
       return (
-        <div className="flex fixed mt-14 ">
+        <div className="flex fixed mt-14 z-10">
           <ul className="flex fixed flex-col items-center bg-zinc-500/95 border-y border-black  top-14 mr-8 left-0 w-full">
             <Link href='/'>
-              <li className="p-4 text-white font-bold">Home</li>
-            </Link>
+              <li className="p-4 text-white font-bold">Home</li></Link>
             <Link href='/APOD'>
-              <li className="p-4 text-white font-bold border-t border-black">APOD</li>
-            </Link>
-            <Link href='/'>
-              <li className="p-4 text-white font-bold border-t border-black">Solar System</li>
-            </Link>
-            <Link href='/'>
-              <li className="p-4 text-white font-bold border-t border-black">Search</li>
-            </Link>
+              <li className="p-4 text-white font-bold border-t border-black">APOD</li></Link>
+            <Link href='/solarSystem'>
+              <li className="p-4 text-white font-bold border-t border-black">Solar System</li></Link>
+            <Link href='/search'>
+              <li className="p-4 text-white font-bold border-t border-black">Search</li></Link>
           </ul>
         </div>
       )

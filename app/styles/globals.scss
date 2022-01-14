@@ -2,6 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  ::-webkit-scrollbar {
+    display: none;
+  }
+}
+
 @layer components {
 
 
@@ -35,12 +44,18 @@
       background-color: white;
       position: absolute;
       top: 1.825rem;
-      left: -0.25rem;
+      left: 24%;
       height: 2px;
-      width: 110%;
+      width: 50%;
       border-radius: 10px;
       animation: elongate 0.5s;
     }
+  }
+  .navHover {
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 3px;
+    box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.5) inset;
+    transition: 0.3s;
   }
 
 
@@ -50,9 +65,42 @@
   }
   .heading {
     font-size: calc(25px + 5vw);
+    &.animation1 {
+      animation: headerShift 1.5s ease;
+    }
+    &.animation2 {
+      transform: translateY(calc(5vw + 3rem));
+      animation: headerShow 2s ease-in;
+    }
+  }
+  .comment {
+    transform: translateY(calc(12vw + 6rem));
+    animation: textReveal 4s;
   }
 
+
+  // Planets
+
+  .planetShadow {
+    outline: black solid 1px;
+    box-shadow:
+    inset -1vh 1vh 1vh 1vh rgba(0, 0, 0, 0.7), inset -2vh 2vh 2vh 2vh rgba(0, 0, 0, 0.65),
+    inset -3vh 3vh 3vh 3vh rgba(0, 0, 0, 0.6), inset -4vh 4vh 2vh 2vh rgba(0, 0, 0, 0.55),
+    inset -5vh 5vh 3vh 3vh rgba(0, 0, 0, 0.5), inset -7vh 7vh 4vh 4vh rgba(0, 0, 0, 0.45),
+    inset -9vh 9vh 5vh 5vh rgba(0, 0, 0, 0.3), inset -11vh 11vh 6vh 6vh rgba(0, 0, 0, 0.2),
+    inset -13vh 13vh 7vh 7vh rgba(0, 0, 0, 0.1),
+    inset 0.1vh -0.1vh 1vh 0.5vh rgba(255, 255, 255, 0.5);
+  }
+
+  .planet {
+    animation: planetSpin 600s linear infinite;
+  }
+
+
   // Animations
+
+  // Animations - Navigation
+
   @keyframes elongate {
     0% {
       transform: translateX(-100px);
@@ -61,6 +109,126 @@
     100% {
       transform: translateX(0px);
       transform: scaleX(1);
+    }
+  }
+
+  // Animations - Home screen
+
+  @keyframes headerShift {
+    0% {
+      transform: translateY(calc(5vw + 3rem));
+    }
+    40% {
+      transform: translateY(calc(5vw + 3rem));
+    }
+    100% {
+      transform: translate(0);
+    }
+  }
+  @keyframes headerShow {
+    0% {
+      opacity: 0;
+    }
+    35% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  @keyframes textReveal {
+    0% {
+      opacity: 0;
+    }
+    60% {
+      opacity: 0;
+      transform: translateY(calc(12vw));
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(calc(12vw + 6rem));
+    }
+  }
+
+  // Animations - Planets
+
+  @keyframes planetSpin {
+    0% {
+      background-position: 0%;
+    }
+    100%{
+      background-position: 2000%;
+    }
+  }
+
+  //Starry Background
+  @function createStars($n) {
+    $starPos: '#{random(3000)}px #{random(9000)}px #FFF'; //creates a random box shadow (white)
+     @for $i from 1 through $n {
+       $starPos: '#{$starPos} , #{random(3000)}px #{random(9000)}px #FFF';
+      } // loop repeatedly adds a box shadow to the previous shadow
+      @return unquote($starPos);
+  }
+
+  $shadows-small:  createStars(400);
+  $shadows-medium: createStars(300);
+  $shadows-large:  createStars(100);
+
+
+  #smallStars{
+    width: 1px;
+    height: 1px;
+    border-radius: 50%;
+    background: white;
+    box-shadow: $shadows-small;
+    animation: starMovement 240s linear infinite;
+    overflow: hidden;
+    &:after {
+      content: " ";
+      position: absolute;
+      top: 4000px;
+      left: -500px;
+    }
+  }
+
+  #mediumStars{
+    width: 2px;
+    height: 2px;
+    border-radius: 50%;
+    background: white;
+    box-shadow: $shadows-medium;
+    animation: starMovement 360s linear infinite;
+    overflow: hidden;
+    &:after {
+      content: " ";
+      position: absolute;
+      top: 4000px;
+      left: -500px;
+    }
+  }
+
+  #largeStars{
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background: white;
+    box-shadow: $shadows-large;
+    animation: starMovement 480s linear infinite;
+    overflow: hidden;
+    &:after {
+      content: " ";
+      position: absolute;
+      top: 4000px;
+      left: -2000px;
+    }
+  }
+
+  @keyframes starMovement {
+    from {
+      transform: translate(0px, 0px);
+    }
+    to {
+      transform: translate(-1000px, -3000px)
     }
   }
 }
