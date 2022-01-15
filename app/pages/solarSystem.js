@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import Navbar from './navbar.js'
 import StarryBg from './starryBg.js'
-import plntInfo from './planetInformation.js'
 import Head from 'next/head'
 import Planet from './Components/planet.js'
 export default function SolarSystem() {

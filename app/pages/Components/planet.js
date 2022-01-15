@@ -2,6 +2,7 @@ import React from 'react'
 import plntInfo from '../planetInformation'
 
 export default function Planet({plnt}) {
+
   function image() {
     if (plnt === 'mercury') {return <div className="relative lg:top-[2vw] w-[35vh] h-[35vh] lg:w-[35vw] lg:h-[35vw] bg-cover planetShadow planet rounded-full bg-repeat bg-[url('https://www.solarsystemscope.com/images/textures/full/2k_makemake_fictional.jpg')]"></div>}
     else if (plnt === 'mars') {return <div className="relative lg:top-[2vw] w-[35vh] h-[35vh] lg:w-[35vw] lg:h-[35vw] bg-cover planetShadow planet rounded-full bg-repeat bg-[url('https://nasa3d.arc.nasa.gov/shared_assets/images/ven0aaa2/ven0aaa2-copy-428-321.jpg')]"></div>}
@@ -21,13 +22,12 @@ export default function Planet({plnt}) {
     </div>
     <div className="flex flex-col items-center justify-center w-full text-white">
       <p className="text-4xl py-10">{planet.name}</p>
-      <p className="py-1">Distance: {planet.distance1} - {planet.distance2}</p>
-      <p className="py-1">Radius: {planet.radius} / {planet.radiusInEarths}</p>
-      <p className="py-1">Mass: {planet.mass} / {planet.massInEarths}</p>
-      <p className="py-1">Day Length: {planet.dayLen}</p>
-      <p className="py-1">Year Length: {planet.yearLen}</p>
+      <p className="py-1"><span className="font-bold">Distance:</span> {planet.distance1} - {planet.distance2}</p>
+      <p className="py-1"><span className="font-bold">Radius:</span> {planet.radius} / {planet.radiusInEarths}</p>
+      <p className="py-1"><span className="font-bold">Mass:</span> {planet.mass} / {planet.massInEarths}</p>
+      <p className="py-1"><span className="font-bold">Day Length:</span> {planet.dayLen}</p>
+      <p className="py-1"><span className="font-bold">Year Length:</span> {planet.yearLen}</p>
     </div>
   </div>
-
   )
 }

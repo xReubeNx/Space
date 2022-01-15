@@ -89,7 +89,8 @@
     inset -5vh 5vh 3vh 3vh rgba(0, 0, 0, 0.5), inset -7vh 7vh 4vh 4vh rgba(0, 0, 0, 0.45),
     inset -9vh 9vh 5vh 5vh rgba(0, 0, 0, 0.3), inset -11vh 11vh 6vh 6vh rgba(0, 0, 0, 0.2),
     inset -13vh 13vh 7vh 7vh rgba(0, 0, 0, 0.1),
-    inset 0.1vh -0.1vh 1vh 0.5vh rgba(255, 255, 255, 0.5);
+    inset 0.05vh -0.05vh 1vh 0.5vh rgba(255, 255, 255, 0.4),
+    inset 0.05vh -0.05vh 0.5vh 0.025vh rgba(255, 255, 255, 0.6),
   }
 
   .planet {
@@ -230,5 +231,81 @@
     to {
       transform: translate(-1000px, -3000px)
     }
+  }
+
+  // POTD perspective animations
+
+  .animations {
+    .imgPtive {
+      transform: perspective(100rem) rotateY(0deg)  scale(1);
+      animation: imgPtiveBack 0.5s;
+    }
+    .imgPtive:hover {
+      transform: perspective(100rem) rotateY(20deg) scale(1.1);
+      animation: imgPtiveForw 0.5s;
+    }
+    .textPtive {
+      transform: perspective(100rem) rotateY(0deg) scale(1);
+      animation: textPtiveBack 0.5s;
+    }
+    .textPtive:hover {
+      transform: perspective(100rem) rotateY(-20deg) scale(1.2);
+      animation: textPtiveForw 0.5s;
+    }
+  }
+
+  @keyframes imgPtiveForw {
+    from {transform: perspective(100rem) rotateY(0deg) scale(1);}
+    to {transform: perspective(100rem) rotateY(20deg) scale(1.1);}
+  }
+  @keyframes imgPtiveBack {
+    from {transform: perspective(100rem) rotateY(20deg) scale(1.1);}
+    to {transform: perspective(100rem) rotateY(0deg) scale(1);}
+  }
+  @keyframes textPtiveForw {
+    from {transform: perspective(100rem) rotateY(0deg) scale(1);}
+    to {transform: perspective(100rem) rotateY(-20deg) scale(1.2);}
+  }
+  @keyframes textPtiveBack {
+    from {transform: perspective(100rem) rotateY(-20deg) scale(1.2);}
+    to {transform: perspective(100rem) rotateY(0deg) scale(1);}
+  }
+
+
+  // Search
+  .searchSlideIn {
+    animation: slideIn 0.8s;
+  }
+  .searchReveal {
+    animation: revealSearch 1.5s;
+  }
+
+  @keyframes slideIn {
+    0% {
+      transform: translateX(20rem);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+  @keyframes revealSearch {
+    0% {
+      opacity: 0;
+      width: 0%;
+    }
+    30% {
+      opacity: 0;
+      width: 0%;
+    }
+    100% {
+      opacity: 1;
+      width: 100%;
+    }
+  }
+
+  //Search Card
+  .animateCard {
+    background-color: white;
+    position: fixed;
   }
 }
