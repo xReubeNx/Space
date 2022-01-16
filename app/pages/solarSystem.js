@@ -3,6 +3,7 @@ import Navbar from './navbar.js'
 import StarryBg from './starryBg.js'
 import Head from 'next/head'
 import Planet from './Components/planet.js'
+import plntInfo from './planetInformation.js'
 export default function SolarSystem() {
 
   const [ isMobile, setIsMobile ] = useState(null);
@@ -16,14 +17,11 @@ export default function SolarSystem() {
     if (!isMobile) {
       return (
       <div className="flex fixed navBg top-[93vh] w-full px-[5vw] py-[1vh] justify-around text-white z-20">
-        <a className="p-2 hover:navHover" href="#Mercury">Mercury</a>
-        <a className="p-2 hover:navHover" href="#Venus">Venus</a>
-        <a className="p-2 hover:navHover" href="#Earth">Earth</a>
-        <a className="p-2 hover:navHover" href="#Mars">Mars</a>
-        <a className="p-2 hover:navHover" href="#Jupiter">Jupiter</a>
-        <a className="p-2 hover:navHover" href="#Saturn">Saturn</a>
-        <a className="p-2 hover:navHover" href="#Uranus">Uranus</a>
-        <a className="p-2 hover:navHover" href="#Neptune">Neptune</a>
+        {
+          Object.values(plntInfo).map((el) => {
+            return <a className="p-2 hover:navHover" href={`#${el.name}`} key={`#${el.name}`}>{el.name}</a>
+          })
+        }
       </div>
       )
     }
@@ -36,22 +34,11 @@ export default function SolarSystem() {
       <StarryBg />
       {renderPlanetLinks()}
       <div className="flex flex-col items-center min-h-screen h-full mt-32">
-        <div className="w-full h-full flex justify-center" id="Mercury">
-          <Planet plnt={'mercury'}/></div>
-        <div className="w-full h-full flex justify-center" id="Venus">
-          <Planet plnt={'venus'}/></div>
-        <div className="w-full h-full flex justify-center" id="Earth">
-          <Planet plnt={'earth'}/></div>
-        <div className="w-full h-full flex justify-center" id="Mars">
-          <Planet plnt={'mars'}/></div>
-        <div className="w-full h-full flex justify-center" id="Jupiter">
-          <Planet plnt={'jupiter'}/></div>
-        <div className="w-full h-full flex justify-center" id="Saturn">
-          <Planet plnt={'saturn'}/></div>
-        <div className="w-full h-full flex justify-center" id="Uranus">
-          <Planet plnt={'uranus'}/></div>
-        <div className="w-full h-full flex justify-center" id="Neptune">
-          <Planet plnt={'neptune'}/></div>
+        {
+          Object.values(plntInfo).map((el) => {
+            return <Planet plnt={el.name.toLowerCase()} key={el.name}  />
+          })
+        }
       </div>
     </div>
   )

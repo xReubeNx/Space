@@ -19,19 +19,18 @@ export default function searchItem(props) {
     let img = await getSearchImage(src);
     setImage(img);
   }
-
   return (
-    <div className="flex flex-col items-center rounded-xl border border-white
+    <div className={`flex flex-col items-center rounded-xl border border-white
      lg:border-white/50 lg:hover:border-white h-[45vh] shadow-black shadow-lg
-     overflow-hidden hover:shadow-white/30 hover:cursor-pointer"
-    onClick={isMobile ? ()=>{} : () => {setIsActive(!isActive)}}>
+     overflow-hidden hover:shadow-white/30 hover:cursor-pointer hover:bg-white/10 ${isActive && 'activeCard'}`}
+    onClick={isMobile ? ()=>{} : () => {props.toggleActive(data, image)}}>
       <div className="w-full">
         <img className="rounded-t-xl border-b border-white/50 max-h-[30vh] min-w-full" src={image}/>
       </div>
       <div className="flex flex-col w-[95%] h-full rounded-b-xl text-white">
         <h1 className="self-center font-bold pt-4">{data.title}</h1>
         <br/>
-        <p className="">{data.description}</p>
+        <p className="py-2">{data.description}</p>
       </div>
     </div>
   )

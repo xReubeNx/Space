@@ -2,14 +2,16 @@ import React, { useState, useEffect } from 'react'
 import Navbar from './navbar.js'
 import { getPOTD } from './api/apiService.js'
 import Head from 'next/head'
+import Image from 'next/image'
 
 export default function APOD() {
 
- let [ picData, setPicData ] = useState({});
+ const [ picData, setPicData ] = useState({});
  const [ isMobile, setIsMobile ] = useState(null);
 
   async function getData() {
     let data = await getPOTD();
+    console.log(data)
     setPicData(data);
   }
 
@@ -24,6 +26,7 @@ export default function APOD() {
       return (
         <div className="flex justify-center h-4/5 py-24">
           <div className="flex flex-col h-full w-4/5">
+            {/* <Image src={picData.url} layout="fill" objectSet="cover" height="100%" width="100%"/> */}
             <img className="w-full h-fit rounded-md shadow-black shadow-md" src={picData.url} alt="Picture of the day"/>
             <div className="flex flex-col w-full items-center py-8">
               {displayInfo()}
@@ -37,7 +40,7 @@ export default function APOD() {
           <div className="flex h-full w-4/5 animations">
             <div className="imgPtive w-1/2 h-full">
               <img className="w-full h-fit rounded-md shadow-black shadow-md" src={picData.url} alt="Picture of the day"/>
-              </div>
+            </div>
             <div className="textPtive w-1/2 h-full">
               <div className="flex flex-col items-center py-16 perspec">
                 {displayInfo()}

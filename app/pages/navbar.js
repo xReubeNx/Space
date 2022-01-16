@@ -53,19 +53,20 @@ export default function Navbar({active}) {
       )
     }
   }
+
   function conditionalDropDown() {
     if (isOpen) {
       return (
         <div className="flex fixed mt-14 z-10">
-          <ul className="flex fixed flex-col items-center bg-zinc-500/95 border-y border-black  top-14 mr-8 left-0 w-full">
+          <ul className="flex fixed flex-col items-center bg-zinc-500/95 border-y border-black  top-14 mr-8 left-0 w-full text-white">
             <Link href='/'>
-              <li className="p-4 text-white font-bold">Home</li></Link>
+              <li className="p-4 font-bold">Home</li></Link>
             <Link href='/APOD'>
-              <li className="p-4 text-white font-bold border-t border-black">APOD</li></Link>
+              <li className="p-4 font-bold border-t border-black">APOD</li></Link>
             <Link href='/solarSystem'>
-              <li className="p-4 text-white font-bold border-t border-black">Solar System</li></Link>
+              <li className="p-4 font-bold border-t border-black">Solar System</li></Link>
             <Link href='/search'>
-              <li className="p-4 text-white font-bold border-t border-black">Search</li></Link>
+              <li className="p-4 font-bold border-t border-black">Search</li></Link>
           </ul>
         </div>
       )

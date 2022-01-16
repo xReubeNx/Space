@@ -1,4 +1,3 @@
-
 export async function getPOTD() {
   let res = await fetch('https://api.nasa.gov/planetary/apod?api_key=' + process.env.NEXT_PUBLIC_API_KEY, {mode:'cors'});
   let data = await res.json()

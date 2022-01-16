@@ -13,10 +13,29 @@
 
 @layer components {
 
+  /*   CONTENTS
+
+  -STYLES-
+  Navigation
+  Home Screen
+  Planets
+
+  -ANIMATIONS-
+  Nav
+  Home
+  Planets
+  POTD (perspective)
+  Search
+
+  STARRY BACKGROUND :)
+
+  */
+
 
   // Navigation
   .navBg {
     background-color: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(3px);
     &::after {
       content: "";
       position: absolute;
@@ -59,7 +78,7 @@
   }
 
 
-  // Home screen
+  // Home Screen
   .heroBg {
     background: radial-gradient(ellipse at top, #26262d, #181318);
   }
@@ -162,76 +181,6 @@
     }
   }
 
-  //Starry Background
-  @function createStars($n) {
-    $starPos: '#{random(3000)}px #{random(9000)}px #FFF'; //creates a random box shadow (white)
-     @for $i from 1 through $n {
-       $starPos: '#{$starPos} , #{random(3000)}px #{random(9000)}px #FFF';
-      } // loop repeatedly adds a box shadow to the previous shadow
-      @return unquote($starPos);
-  }
-
-  $shadows-small:  createStars(400);
-  $shadows-medium: createStars(300);
-  $shadows-large:  createStars(100);
-
-
-  #smallStars{
-    width: 1px;
-    height: 1px;
-    border-radius: 50%;
-    background: white;
-    box-shadow: $shadows-small;
-    animation: starMovement 240s linear infinite;
-    overflow: hidden;
-    &:after {
-      content: " ";
-      position: absolute;
-      top: 4000px;
-      left: -500px;
-    }
-  }
-
-  #mediumStars{
-    width: 2px;
-    height: 2px;
-    border-radius: 50%;
-    background: white;
-    box-shadow: $shadows-medium;
-    animation: starMovement 360s linear infinite;
-    overflow: hidden;
-    &:after {
-      content: " ";
-      position: absolute;
-      top: 4000px;
-      left: -500px;
-    }
-  }
-
-  #largeStars{
-    width: 3px;
-    height: 3px;
-    border-radius: 50%;
-    background: white;
-    box-shadow: $shadows-large;
-    animation: starMovement 480s linear infinite;
-    overflow: hidden;
-    &:after {
-      content: " ";
-      position: absolute;
-      top: 4000px;
-      left: -2000px;
-    }
-  }
-
-  @keyframes starMovement {
-    from {
-      transform: translate(0px, 0px);
-    }
-    to {
-      transform: translate(-1000px, -3000px)
-    }
-  }
 
   // POTD perspective animations
 
@@ -274,14 +223,17 @@
 
   // Search
   .searchSlideIn {
-    animation: slideIn 0.8s;
+    animation: slideIn 1.2s;
   }
   .searchReveal {
-    animation: revealSearch 1.5s;
+    animation: revealSearch 1.7s;
   }
 
   @keyframes slideIn {
     0% {
+      transform: translateX(20rem);
+    }
+    40% {
       transform: translateX(20rem);
     }
     100% {
@@ -293,7 +245,7 @@
       opacity: 0;
       width: 0%;
     }
-    30% {
+    60% {
       opacity: 0;
       width: 0%;
     }
@@ -303,9 +255,89 @@
     }
   }
 
-  //Search Card
-  .animateCard {
-    background-color: white;
-    position: fixed;
+  .activeCard {
+    background-color: black;
+    position: relative;
+    height: 100% !important;
   }
+
+
+
+
+
+
+
+
+
+    // Starry Background
+    @function createStars($n) {
+      $starPos: '#{random(3000)}px #{random(9000)}px #FFF'; //creates a random box shadow (white)
+       @for $i from 1 through $n {
+         $starPos: '#{$starPos} , #{random(3000)}px #{random(9000)}px #FFF';
+        } // loop repeatedly adds a box shadow to the previous shadow
+        @return unquote($starPos);
+    }
+
+    $shadows-small:  createStars(1000);
+    $shadows-medium: createStars(500);
+    $shadows-large:  createStars(100);
+
+
+    #smallStars{
+      width: 1px;
+      height: 1px;
+      border-radius: 50%;
+      background: white;
+      box-shadow: $shadows-small;
+      animation: starMovement 240s linear infinite;
+      overflow: hidden;
+      &:after {
+        content: " ";
+        position: absolute;
+        top: 4000px;
+        left: -500px;
+      }
+    }
+
+    #mediumStars{
+      width: 2px;
+      height: 2px;
+      border-radius: 50%;
+      background: white;
+      box-shadow: $shadows-medium;
+      animation: starMovement 360s linear infinite;
+      overflow: hidden;
+      &:after {
+        content: " ";
+        position: absolute;
+        top: 4000px;
+        left: -500px;
+      }
+    }
+
+    #largeStars{
+      width: 3px;
+      height: 3px;
+      border-radius: 50%;
+      background: white;
+      box-shadow: $shadows-large;
+      animation: starMovement 480s linear infinite;
+      overflow: hidden;
+      &:after {
+        content: " ";
+        position: absolute;
+        top: 4000px;
+        left: -2000px;
+      }
+    }
+
+    @keyframes starMovement {
+      from {
+        transform: translate(0px, 0px);
+      }
+      to {
+        transform: translate(-1000px, -3000px)
+      }
+    }
+
 }
