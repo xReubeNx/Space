@@ -187,19 +187,19 @@
   .animations {
     .imgPtive {
       transform: perspective(100rem) rotateY(0deg)  scale(1);
-      animation: imgPtiveBack 0.5s;
+      animation: imgPtiveBack 0.6s;
     }
     .imgPtive:hover {
       transform: perspective(100rem) rotateY(20deg) scale(1.1);
-      animation: imgPtiveForw 0.5s;
+      animation: imgPtiveForw 0.6s;
     }
     .textPtive {
       transform: perspective(100rem) rotateY(0deg) scale(1);
-      animation: textPtiveBack 0.5s;
+      animation: textPtiveBack 0.6s;
     }
     .textPtive:hover {
       transform: perspective(100rem) rotateY(-20deg) scale(1.2);
-      animation: textPtiveForw 0.5s;
+      animation: textPtiveForw 0.6s;
     }
   }
 

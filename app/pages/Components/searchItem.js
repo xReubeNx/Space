@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { getSearchImage } from '../api/apiService'
 
 export default function searchItem(props) {
+
   let data = props.info.data[0]
   let imgSrc = props.info.href
 
@@ -13,7 +14,7 @@ export default function searchItem(props) {
     getImage(imgSrc)
     setIsMobile(window.innerWidth < 1024 ? true : false);
     window.addEventListener('resize', () => {setIsMobile(window.innerWidth < 1024 ? true : false)});
-  }, [])
+  }, [data])
 
   async function getImage(src) {
     let img = await getSearchImage(src);

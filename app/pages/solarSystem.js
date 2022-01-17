@@ -33,7 +33,7 @@ export default function SolarSystem() {
       <Navbar active={'SolarSystem'}/>
       <StarryBg />
       {renderPlanetLinks()}
-      <div className="flex flex-col items-center min-h-screen h-full mt-32">
+      <div className="flex flex-col items-center min-h-screen h-full mt-24">
         {
           Object.values(plntInfo).map((el) => {
             return <Planet plnt={el.name.toLowerCase()} key={el.name}  />

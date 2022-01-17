@@ -14,5 +14,5 @@ export async function getSearch(query, page) {
 export async function getSearchImage(url) {
   let res = await fetch(url, {mode:'cors'})
   let data = await res.json();
-  return data[0]
+  return data[1]
 }
