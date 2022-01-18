@@ -3,6 +3,7 @@ module.exports = {
     './pages/index.js',
     './pages/navbar.js',
     './pages/hero.js',
+    './pages/hero2.js',
     './pages/APOD.js',
     './pages/solarSystem.js',
     './pages/search.js',

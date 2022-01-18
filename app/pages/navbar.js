@@ -27,7 +27,7 @@ export default function Navbar({active}) {
     } else {
       return (
         <div className="fixed flex h-14 w-screen mt-4 justify-end z-10">
-          <ul className='flex navBg justify-evenly items-center w-1/2 rounded-l py-8 relative'>
+          <ul className='flex navBg justify-evenly items-center w-1/2 rounded-l-sm py-8 relative'>
             <Link href='/'>
               <li className="relative">
                 {active === 'Home' && <span className="selected" />}

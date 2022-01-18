@@ -34,7 +34,7 @@ export default function Search() {
   function renderSearchBar() {
     if (isMobile) {
       return (
-        <div className="flex fixed w-3/4 h-14 justify-center items-center z-20">
+        <div className={`flex fixed w-3/4 h-14 justify-center items-center z-20 ${activeCard && 'hidden'}`}>
           <form type="submit" onSubmit={(e) => {formSubmit(e)}} className="w-4/5">
             <input type="text" placeholder="Search..." className="heroBg w-4/5 h-10 text-white p-4 rounded-xl"   />
           </form>
@@ -78,7 +78,7 @@ export default function Search() {
     return (
       <div className=" fixed flex h-screen w-screen justify-center items-center z-10 backdrop-blur-lg"
       onClick={() => {toggleActive()}}>
-        <div className="flex flex-col items-center rounded-3xl border border-white h-[90%] w-1/3 heroBg hover:cursor-pointer">
+        <div className="flex flex-col items-center rounded-3xl border border-white h-[90%] lg:w-1/3 w-3/4 heroBg hover:cursor-pointer">
           <div className="w-full">
             <img className="rounded-t-3xl border-b border-white/50 w-full" src={image}/>
           </div>
@@ -104,7 +104,7 @@ export default function Search() {
         </div>
           {
           displayedData < 100 && searchData !== null &&
-            <div className="text-white flex justify-center items-center w-[40vw] h-12 bg-white/5 hover:bg-white/10 rounded-3xl  hover:cursor-pointer"
+            <div className="text-white flex justify-center items-center w-[40vw] h-12 bg-white/5 hover:bg-white/10 rounded-3xl border border-white/20 hover:cursor-pointer"
               onClick={()=>{setDisplayedData(displayedData + 20)}}>
               <p className="font-sans font-bold text-xl">show more</p>
             </div>
