@@ -13,7 +13,6 @@ export default function Hero() {
   function handleScroll() {
     setYOffset(window.pageYOffset);
   }
-  console.log(yOffset);
 
   return (
     <div className="heroGradient h-[500vh] w-screen">
