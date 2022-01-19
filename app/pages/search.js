@@ -78,7 +78,21 @@ export default function Search() {
     return (
       <div className=" fixed flex h-screen w-screen justify-center items-center z-10 backdrop-blur-lg"
       onClick={() => {toggleActive()}}>
-        <div className="flex flex-col items-center rounded-3xl border border-white h-[90%] lg:w-1/3 w-3/4 heroBg hover:cursor-pointer">
+        {
+          (window.innerWidth > window.innerHeight) && isMobile
+          ?
+          <div className="flex items-center rounded-3xl border border-white h-[90%] lg:w-1/3 w-3/4 heroBg hover:cursor-pointer">
+            <div className="h-full ">
+              <img className="rounded-l-3xl border-r border-white/50 h-full" src={image}/>
+            </div>
+            <div className="flex flex-col w-[95%] h-full rounded-b-xl text-white overflow-scroll">
+              <h1 className="self-center font-bold pt-4">{data.title}</h1>
+              <br/>
+              <p className="p-2 pb-5">{data.description}</p>
+            </div>
+          </div>
+          :
+          <div className="flex flex-col items-center rounded-3xl border border-white h-[90%] lg:w-1/3 w-3/4 heroBg hover:cursor-pointer">
           <div className="w-full">
             <img className="rounded-t-3xl border-b border-white/50 w-full" src={image}/>
           </div>
@@ -88,6 +102,8 @@ export default function Search() {
             <p className="p-2 pb-5">{data.description}</p>
           </div>
         </div>
+        }
+
       </div>
     )
   }

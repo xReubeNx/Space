@@ -17,7 +17,7 @@ module.exports = {
         lg:'1024px',
       },
       gridTemplateColumns: {
-        'custom-4': 'repeat(auto-fit, minmax(250px, 1fr))',
+        'custom-4': 'repeat(auto-fit, minmax(235px, 1fr))',
       },
     },
   },

@@ -83,7 +83,7 @@
     background: radial-gradient(ellipse at top, #26262d, #181318);
   }
   .heading {
-    font-size: calc(25px + 5vw);
+    font-size: calc(20px + 5vw);
     &.animation1 {
       animation: headerShift 1.5s ease;
     }
@@ -263,14 +263,14 @@
 
   // Starry Background
   @function createStars($n) {
-    $starPos: '#{random(3000)}px #{random(9000)}px #FFF'; //creates a random box shadow (white)
+    $starPos: '#{random(100)}vw #{random(7000)}px #FFF'; //creates a random box shadow (white)
       @for $i from 1 through $n {
-        $starPos: '#{$starPos} , #{random(3000)}px #{random(9000)}px #FFF';
+        $starPos: '#{$starPos} , #{random(100)}vw #{random(7000)}px #FFF';
       } // loop repeatedly adds a box shadow to the previous shadow
       @return unquote($starPos);
   }
 
-  $shadows-small:  createStars(1000);
+  $shadows-small:  createStars(1500);
   $shadows-medium: createStars(500);
   $shadows-large:  createStars(100);
 
@@ -281,7 +281,7 @@
     border-radius: 50%;
     background: white;
     box-shadow: $shadows-small;
-    animation: starMovement 240s linear infinite;
+    animation: starMovement 240s linear infinite, pulse 1s cubic-bezier(0.4, 0, 0.6, 1) infinite;
     overflow: hidden;
     &:after {
       content: " ";
@@ -297,7 +297,7 @@
     border-radius: 50%;
     background: white;
     box-shadow: $shadows-medium;
-    animation: starMovement 360s linear infinite;
+    animation: starMovement 360s linear infinite, pulse 1s cubic-bezier(0.4, 0, 0.6, 1) infinite;
     overflow: hidden;
     &:after {
       content: " ";
@@ -313,7 +313,7 @@
     border-radius: 50%;
     background: white;
     box-shadow: $shadows-large;
-    animation: starMovement 480s linear infinite;
+    animation: starMovement 480s linear infinite, pulse 1s cubic-bezier(0.4, 0, 0.6, 1) infinite;
     overflow: hidden;
     &:after {
       content: " ";
@@ -325,10 +325,19 @@
 
   @keyframes starMovement {
     from {
-      transform: translate(0px, 0px);
+      transform: translateY(0);
     }
     to {
-      transform: translate(-1000px, -3000px)
+      transform: translateY(-3000px)
+    }
+  }
+
+  @keyframes pulse {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.5;
     }
   }
 
@@ -341,7 +350,7 @@
   }
 
   .glass {
-    background-color: rgba(255, 255, 255, 0.3);
+    background-color: rgba(255, 255, 255, 0.4);
     backdrop-filter: blur(10px);
     box-shadow: 0 0 20px rgba(255, 255, 255, 0.5),
     inset 0px -25px 25px rgba(0, 0, 0, 0.2), inset 0px -35px 30px rgba(0, 0, 0, 0.15),
@@ -374,7 +383,7 @@
     border-radius: 50%;
     background: white;
     box-shadow: $heroStars;
-    animation: heroStarMovement 200s linear infinite;
+    animation: heroStarMovement 150s linear infinite;
     overflow: hidden;
     &:after {
       content: " ";
@@ -420,8 +429,7 @@
       transform: translateY(0);
     }
     to {
-      transform: translateY(-2000px)
+      transform: translateY(-1500px)
     }
   }
-
 }

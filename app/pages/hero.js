@@ -40,24 +40,24 @@ export default function Hero() {
        style={{transform: `translateY(${yOffset * -1.5}px)`}}>
          <p>Scroll down</p>
       </div>
-      <div className="absolute border border-white/20 top-[80%] left-[25%]
+      <div className="absolute border border-white/20 top-[120%] left-[25%]
        w-[25vw] h-[15vh] rounded-full glass flex items-center justify-center text-white text-5xl"
-       style={{transform: `translateY(${yOffset * 0.5}px)`}}>
+       style={{transform: `translateY(${yOffset * 0.3}px)`}}>
          <p>مرحبا</p>
       </div>
-      <div className="absolute border border-white/20 top-[90%] left-[5%]
+      <div className="absolute border border-white/20 top-[140%] left-[5%]
        w-[25vw] h-[15vh] rounded-full glass flex items-center justify-center text-white text-5xl"
        style={{transform: `translateY(${yOffset * -1.3}px)`}}>
          <p>Բարեւ Ձեզ</p>
       </div>
-      <div className="absolute border border-white/20 top-[30%] left-[70%]
+      <div className="absolute border border-white/20 top-[130%] left-[70%]
        w-[20vw] h-[10vh] rounded-full glass flex items-center justify-center text-white text-5xl"
        style={{transform: `translateY(${yOffset * 0.3}px)`}}>
          <p>হ্যালো</p>
       </div>
       <div className="absolute border border-white/20 top-[120%] left-[60%]
        w-[25vw] h-[15vh] rounded-full glass flex items-center justify-center text-white text-5xl"
-       style={{transform: `translateY(${yOffset * 0.35}px)`}}>
+       style={{transform: `translateY(${yOffset * 0.2}px)`}}>
          <p>ဟယ်လို</p>
       </div>
       <div className="absolute border border-white/20 top-[150%] left-[40%]
@@ -70,9 +70,9 @@ export default function Hero() {
        style={{transform: `translateY(${yOffset * -0.3}px)`}}>
          <p>Hej</p>
       </div>
-      <div className="absolute border border-white/20 top-[18%] left-[10%]
+      <div className="absolute border border-white/20 top-[118%] left-[10%]
        w-[20vw] h-[10vh] rounded-full glass flex items-center justify-center text-white text-5xl"
-       style={{transform: `translateY(${yOffset * 0.8}px)`}}>
+       style={{transform: `translateY(${yOffset * -0.1}px)`}}>
          <p>Bonjour</p>
       </div>
       <div className="absolute border-r-0 border border-white/20 top-[190%] left-[92%]
@@ -80,9 +80,9 @@ export default function Hero() {
        style={{transform: `translateY(${yOffset * -0.8}px)`}}>
          <p>Hei</p>
       </div>
-      <div className="absolute border border-white/20 top-[80%] left-[-5%]
+      <div className="absolute border border-white/20 top-[160%] left-[-5%]
        w-[20vw] h-[10vh] rounded-full glass flex items-center justify-center text-white text-5xl"
-       style={{transform: `translateY(${yOffset * 0.7}px)`}}>
+       style={{transform: `translateY(${yOffset * 0.5}px)`}}>
          <p>Hallo</p>
       </div>
       <div className="absolute border-r-0 border border-white/20 top-[160%] left-[85%]
@@ -125,7 +125,7 @@ export default function Hero() {
        style={{transform: `translateY(${yOffset * -0.7}px)`}}>
          <p>Olá</p>
       </div>
-      <div className="absolute border border-white/20 top-[12%] left-[35%]
+      <div className="absolute border border-white/20 top-[112%] left-[35%]
        w-[25vw] h-[12vh] rounded-full glass flex items-center justify-center text-white text-5xl"
        style={{transform: `translateY(${yOffset * -0.1}px)`}}>
          <p>سلام</p>
@@ -155,7 +155,7 @@ export default function Hero() {
        style={{transform: `translateY(${yOffset * -0.7}px)`}}>
          <p>Lumela</p>
       </div>
-      <div className="absolute border border-white/20 top-[130%] left-[13%]
+      <div className="absolute border border-white/20 top-[130%] left-[6%]
        w-[25vw] h-[13vh] rounded-full glass flex items-center justify-center text-white text-5xl"
        style={{transform: `translateY(${yOffset * 0.1}px)`}}>
          <p>habari</p>
@@ -170,7 +170,7 @@ export default function Hero() {
        style={{transform: `translateY(${yOffset * -1.2}px)`}}>
          <p>హలో</p>
       </div>
-      <div className="absolute border border-white/20 top-[90%] left-[74%]
+      <div className="absolute border border-white/20 top-[110%] left-[74%]
        w-[25vw] h-[8vh] rounded-full glass flex items-center justify-center text-white text-5xl"
        style={{transform: `translateY(${yOffset * -0.2}px)`}}>
          <p>Сәлам</p>
@@ -188,9 +188,9 @@ export default function Hero() {
          <p>Click to see what I can do...</p>
       </div>
       </Link >
-      <div id="heroStars" style={{opacity:`${(yOffset-1000)/3000}`}}/>
-      <div id="heroStars2" style={{opacity:`${(yOffset-1000)/2500}`}} />
-      <div id="heroStars3" style={{opacity:`${(yOffset-1000)/2000}`}} />
+      <div id="heroStars" style={{opacity:`${(yOffset-1500)/1500}`}}/>
+      <div id="heroStars2" style={{opacity:`${(yOffset-1500)/1500}`}} />
+      <div id="heroStars3" style={{opacity:`${(yOffset-1500)/1500}`}} />
     </div>
   )
 }
