@@ -33,3 +33,7 @@ npm run dev
 ## Tech Stack
 
 Next.js, Tailwind and Sass
+
+## Dependencies
+
+You will need a NASA API key in your env.local. (free)
